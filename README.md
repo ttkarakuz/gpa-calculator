@@ -7,4 +7,4 @@ This project calculates GPA and simulates target GPA.
 - Target GPA simulation
 
 ## Run
-python main.py
+maincode.py
