@@ -1,21 +1,33 @@
-# 🎯 GPA Calculator
+# 🎯 GPA Calculator (CLI + GUI)
 
-A simple and efficient **Python-based GPA calculator** with target GPA simulation for students.
+A modern **Python-based GPA calculator** with both **CLI (terminal)** and **GUI (desktop app)** versions.
+Designed to help students easily calculate their GPA and simulate target averages.
 
 ---
 
 ## 🚀 Features
 
-* 📊 Calculate your current GPA
-* 🎯 Simulate target GPA
-* 🧠 See what grades you need to reach your goal
-* ⚡ Simple and fast CLI (terminal-based)
+### 💻 CLI Version
+
+* 📊 Calculate current GPA
+* 🎯 Target GPA simulation
+* ⚡ Fast and lightweight
+
+### 🖥️ GUI Version
+
+* 🧾 User-friendly interface
+* 📥 Add courses with dropdown grade selection
+* 🗑️ Delete selected courses
+* 📊 Automatic GPA calculation
+* 🎯 Target GPA & required average calculation
+* 📋 Table view for course list
 
 ---
 
 ## 🛠️ Technologies Used
 
 * Python 3
+* Tkinter (GUI)
 
 ---
 
@@ -32,41 +44,35 @@ cd gpa-calculator
 
 ## ▶️ Usage
 
-Run the program:
+### Run CLI version:
 
 ```bash
 python main.py
 ```
 
-Then:
+### Run GUI version:
 
-* Enter your courses
-* Input credits and letter grades
-* See your GPA instantly
-* Enter your target GPA to simulate future performance
+```bash
+python gui.py
+```
 
 ---
 
-## 💡 Example
+## 💡 Example Use Case
 
-```
-Ders adı: Math
-Kredi: 4
-Harf notu: BB
-
-🎯 Mevcut GPA: 3.00
-🔥 Hedef GPA: 3.50
-💡 Gerekli ortalama: 3.75
-```
+* Add your courses with credits and grades
+* Instantly calculate your GPA
+* Enter your target GPA
+* See what average you need to achieve it 🎯
 
 ---
 
 ## 📌 Future Improvements
 
-* GUI (Graphical Interface)
-* Data saving (JSON/database)
-* Course editing & deleting
-* Mobile-friendly version
+* 🌙 Dark mode
+* 💾 Save/load data (JSON)
+* 📱 Mobile app version
+* 🌐 Web version
 
 ---
 
@@ -78,4 +84,4 @@ Harf notu: BB
 
 ## ⭐ Support
 
-If you like this project, give it a ⭐ on GitHub!
+If you like this project, consider giving it a ⭐ on GitHub!
