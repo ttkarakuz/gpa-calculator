@@ -1,0 +1,83 @@
+def harf_notu_to_puan(harf):
+    harf = harf.upper()
+    mapping = {
+        "AA": 4.0,
+        "BA": 3.5,
+        "BB": 3.0,
+        "CB": 2.5,
+        "CC": 2.0,
+        "DC": 1.5,
+        "DD": 1.0,
+        "FD": 0.5,
+        "FF": 0.0
+    }
+    return mapping.get(harf, -1)
+
+
+def gpa_hesapla(dersler):
+    toplam_puan = 0
+    toplam_kredi = 0
+
+    for ders in dersler:
+        kredi = ders["kredi"]
+        puan = ders["puan"]
+
+        toplam_puan += kredi * puan
+        toplam_kredi += kredi
+
+    if toplam_kredi == 0:
+        return 0
+
+    return toplam_puan / toplam_kredi
+
+
+dersler = []
+
+print("📚 Derslerini gir (çıkmak için 'q')")
+
+while True:
+    ders_adi = input("Ders adı: ")
+    if ders_adi.lower() == "q":
+        break
+
+    kredi = int(input("Kredi: "))
+
+    while True:
+        harf = input("Harf notu (AA, BA, BB...): ")
+        puan = harf_notu_to_puan(harf)
+
+        if puan != -1:
+            break
+        else:
+            print("❌ Geçersiz not, tekrar gir")
+
+    dersler.append({
+        "ad": ders_adi,
+        "kredi": kredi,
+        "puan": puan
+    })
+
+
+gpa = gpa_hesapla(dersler)
+print(f"\n🎯 Mevcut GPA: {gpa:.2f}")
+
+
+# HEDEF SİMÜLASYONU
+hedef = float(input("\n🔥 Hedef GPA gir: "))
+kalan_kredi = int(input("Kaç kredi daha alacaksın: "))
+
+gerekli_toplam_puan = hedef * (sum(d["kredi"] for d in dersler) + kalan_kredi)
+mevcut_puan = sum(d["kredi"] * d["puan"] for d in dersler)
+
+gereken_puan = gerekli_toplam_puan - mevcut_puan
+
+gerekli_ortalama = gereken_puan / kalan_kredi
+
+print(f"\n💡 Hedef için kalan derslerde ortalama: {gerekli_ortalama:.2f}")
+
+if gerekli_ortalama > 4.0:
+    print("🚨 Bu hedef biraz zor")
+elif gerekli_ortalama >= 3.0:
+    print("⚠️ Sağlam çalışman lazım")
+else:
+    print("😎 Rahat yaparsın")
